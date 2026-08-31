@@ -1,6 +1,17 @@
 pipeline {
     agent { label 'worker' }
-
+    parameters {
+        string (name: 'StrPARAM' , defaultValue: 'StrPARAM-def-value', description: 'Stam string')
+        choice (name: 'ChPARAM', choises: [ 'ch-1', 'ch-2', 'ch-3'])
+    }
+    environment {
+        OWNER = 'Plony'
+        PROJECT = 'Jenk_Pipelines'
+    }
+    options {
+        timestamps()
+        timeout(time: 5, unit: 'MINUTES')
+    }
     stages {
         stage('Clean WS') {
             steps {
@@ -21,6 +32,8 @@ pipeline {
                     ls -la
                     git clone https://github.com/DimaRT-ED/JenkinsTest.git
                     ls -la
+                    echo " StrPARAM: ${params.StrPARAM} "
+                    echo " OWNER: ${env.OWNER} "
                 '''
             }
         }
