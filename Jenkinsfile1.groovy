@@ -12,6 +12,9 @@ pipeline {
         timestamps()
         timeout(time: 5, unit: 'MINUTES')
     }
+    triggers {
+        cron(* * * * *)
+    }
     stages {
         stage('Clean WS') {
             steps {
