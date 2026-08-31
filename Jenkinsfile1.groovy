@@ -13,7 +13,7 @@ pipeline {
         timeout(time: 5, unit: 'MINUTES')
     }
     triggers {
-        cron(* * * * *)
+        cron('* * * * *')
     }
     stages {
         stage('Clean WS') {
