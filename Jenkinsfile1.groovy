@@ -32,11 +32,22 @@ pipeline {
                     ls -la
                     git clone https://github.com/DimaRT-ED/JenkinsTest.git
                     ls -la
-                    echo " StrPARAM: ${params.StrPARAM} "
-                    echo " OWNER: ${env.OWNER} "
+                    echo " StrPARAM: ${StrPARAM} "
+                    echo " OWNER: $OWNER "
                 '''
             }
         }
+/*
+        stage('EXAMPLE') {
+            steps {
+                script {
+                    echo " StrPARAM: ${params.StrPARAM} "
+                    echo " OWNER: ${env.OWNER} "
+                }
+                
+            }
+        }
+        */
         stage('Stage-3') {
             steps {
                 sh'''
