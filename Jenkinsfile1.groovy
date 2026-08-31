@@ -2,7 +2,7 @@ pipeline {
     agent { label 'worker' }
     parameters {
         string (name: 'StrPARAM' , defaultValue: 'StrPARAM-def-value', description: 'Stam string')
-        choice (name: 'ChPARAM', choises: [ 'ch-1', 'ch-2', 'ch-3'])
+        choice (name: 'ChPARAM', choices: [ 'ch-1', 'ch-2', 'ch-3'])
     }
     environment {
         OWNER = 'Plony'
